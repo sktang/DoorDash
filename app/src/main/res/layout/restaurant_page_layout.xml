@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/restaurant_page_name"
+        android:textStyle="bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:gravity="start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Restaurant 123" />
+
+    <TextView
+        android:id="@+id/restaurant_page_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textStyle="italic"
+        android:textSize="12sp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_page_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="A generic restaurant for testing" />
+
+    <TextView
+        android:id="@+id/restaurant_page_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:maxWidth="100dp"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_page_description"
+        tools:text="Status: open" />
+
+    <TextView
+        android:id="@+id/restaurant_page_delivery_fee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:maxWidth="100dp"
+        app:layout_constraintLeft_toRightOf="@id/restaurant_page_status"
+        app:layout_constraintTop_toBottomOf="@id/restaurant_page_description"
+        tools:text="Free" />
+
+</android.support.constraint.ConstraintLayout>

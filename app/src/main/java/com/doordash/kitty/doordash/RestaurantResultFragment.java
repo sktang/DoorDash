@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.doordash.kitty.doordash.Retrofit.ApiService;
+import com.doordash.kitty.doordash.Retrofit.Restaurant;
+import com.doordash.kitty.doordash.Retrofit.RetrofitClientInstance;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -28,7 +32,7 @@ public class RestaurantResultFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         ApiService service = RetrofitClientInstance.getRetrofitInstance().create(ApiService.class);
-        Call<List<Restaurant>> call = service.getAllRestaurants(37.422740, -122.139956);
+        Call<List<Restaurant>> call = service.getAllRestaurants(37.422740, -122.139956,0, 50);
         call.enqueue(new Callback<List<Restaurant>>() {
             @Override
             public void onResponse(Call<List<Restaurant>> call, Response<List<Restaurant>> response) {
@@ -36,12 +40,11 @@ public class RestaurantResultFragment extends Fragment {
                     RestaurantItemAdapter restaurantItemAdapter = new RestaurantItemAdapter(response.body());
                     recyclerView.setAdapter(restaurantItemAdapter);
                 }
-
             }
 
             @Override
             public void onFailure(Call<List<Restaurant>> call, Throwable t) {
-                Toast.makeText(requireContext(), "restaurant GET failed", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireContext(), "restaurants GET failed", Toast.LENGTH_SHORT).show();
             }
         });
 
