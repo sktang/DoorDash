@@ -37,7 +37,7 @@ public class RestaurantResultFragment extends Fragment {
             @Override
             public void onResponse(Call<List<Restaurant>> call, Response<List<Restaurant>> response) {
                 if(response.body() != null) {
-                    RestaurantItemAdapter restaurantItemAdapter = new RestaurantItemAdapter(response.body());
+                    RestaurantItemAdapter restaurantItemAdapter = new RestaurantItemAdapter(response.body(), getActivity());
                     recyclerView.setAdapter(restaurantItemAdapter);
                 }
             }
